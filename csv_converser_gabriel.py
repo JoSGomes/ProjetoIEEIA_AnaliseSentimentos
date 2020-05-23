@@ -1,4 +1,5 @@
 import csv
+import nltk
 
 # abre o arquivo correspondente
 file = open('comentarios_bruto.txt', 'r')
@@ -17,4 +18,4 @@ for a in comentarios:
     listAvalliation = linha[0].split(maxsplit=0)
     listAllComments = linha[1].split()
     #escreve em cada coluna do arquivo a sua avaliação e seu respectivo comentário.
-    cw.writerow(listAvalliation + listAllComments)
+    cw.writerow(listAvalliation + nltk.word_tokenize(listAllComments))
